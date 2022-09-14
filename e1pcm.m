@@ -1,6 +1,7 @@
 % Performs Pulse Code Modulation and Reconstruction
 % Plots the cuves, and computes the SNR.
 close all;
+clear all;
 
 % Input signal generation
 f = 2;
@@ -33,16 +34,15 @@ for ii = 1:Llen
    
   % Stemming the binary sequence
   figure;
-  stem(CCnum)
+  subplot(2,1,1);
+  stem(CCnum,"linewidth",2);
   xlabel('Time',"fontsize",12);
   ylabel('Encoded Bit Stream',"fontsize",12);
   title('PCM: Encoded bit stream',"fontsize",12);
 
   % Plotting sampled versus reconstructed signal
-  figure;
-  plot(t, x);
-  hold on
-  plot(t, XX)
+  subplot(2,1,2);
+  plot(t, x,t, XX);
   grid on;
   xlabel('Time',"fontsize",12);
   ylabel('Amplitude',"fontsize",12);
